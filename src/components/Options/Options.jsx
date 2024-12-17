@@ -5,7 +5,7 @@ const Options = () => {
   return (
     <ul className={css.list}>
       <li>
-        <button onClick={} className={css.button} type="button">
+        <button className={css.button} type="button">
           Good
         </button>
       </li>
