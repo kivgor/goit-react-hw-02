@@ -2,22 +2,25 @@
 // import reactLogo from '../assets/react.svg'
 // import viteLogo from '/vite.svg'
 
-
+import { useState } from 'react';
 import Description from './Description/Description';
 import Feedback from './Feedback/Feedback';
 import Options from './Options/Options';
 
-function App() {  
-  
+function App() {
+  const [countVote, setCountVote] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-   
   // const [count, setCount] = useState(0);
 
   return (
     <>
       <Description />
-      <Options />
-      <Feedback />
+      <Options setCountVote={setCountVote} />
+      <Feedback countVote={countVote} />
     </>
   );
 }

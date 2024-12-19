@@ -1,13 +1,13 @@
-import css from './Feedback.module.css'
+import css from './Feedback.module.css';
 
-const Feedback = () => {
+const Feedback = ({ countVote }) => {
   return (
-      <ul className={css.list}>
-          <li>Good: </li>
-          <li>Neutral: </li>
-          <li>Bad: </li>          
-      </ul>
-  )
-}
+    <ul className={css.list}>
+      <li>Good: {countVote.good}</li>
+      <li>Neutral: {countVote.neutral}</li>
+      <li>Bad: {countVote.bad}</li>
+    </ul>
+  );
+};
 
-export default Feedback
+export default Feedback;
