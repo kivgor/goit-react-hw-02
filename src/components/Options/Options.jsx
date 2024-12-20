@@ -1,19 +1,6 @@
 import css from './Options.module.css';
 
-const Options = ({ setCountVote }) => {
-  const updateFeedback = feedbackType => {
-    switch (feedbackType) {
-      case 'good':
-        return setCountVote(prev => ({ ...prev, good: prev.good + 1 }));
-      case 'neutral':
-        return setCountVote(prev => ({ ...prev, neutral: prev.neutral + 1 }));
-      case 'bad':
-        return setCountVote(prev => ({ ...prev, bad: prev.bad + 1 }));
-      default:
-        break;
-    }
-  };
-
+const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
   return (
     <ul className={css.list}>
       <li>
@@ -43,11 +30,17 @@ const Options = ({ setCountVote }) => {
           Bad
         </button>
       </li>
-      <li>
-        <button className={css.button} type="button">
-          Reset
-        </button>
-      </li>
+      {totalFeedback > 0 && (
+        <li>
+          <button
+            onClick={() => resetFeedback()}
+            className={css.button}
+            type="button"
+          >
+            Reset
+          </button>
+        </li>
+      )}
     </ul>
   );
 };
