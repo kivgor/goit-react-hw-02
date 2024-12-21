@@ -1,7 +1,6 @@
 import css from './Feedback.module.css';
 
-const Feedback = ({ countVote, totalFeedback }) => {
-  let positiveFeedback = Math.round((countVote.good / totalFeedback) * 100); 
+const Feedback = ({ countVote, totalFeedback, positiveFeedback }) => {
   return (
     <ul className={css.list}>
       <li>Good: {countVote.good}</li>

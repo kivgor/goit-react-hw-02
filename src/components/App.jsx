@@ -10,13 +10,13 @@ function App() {
     neutral: 0,
     bad: 0,
   };
-  
+
   const [countVote, setCountVote] = useState(() => {
     const savedVotes = JSON.parse(localStorage.getItem('saved-votes'));
-    
-      if (savedVotes !== null) {
-        return savedVotes;
-      }
+
+    if (savedVotes !== null) {
+      return savedVotes;
+    }
     return initialVotes;
   });
 
@@ -32,8 +32,7 @@ function App() {
   };
 
   const totalFeedback = countVote.good + countVote.neutral + countVote.bad;
-
-  
+  const positiveFeedback = Math.round((countVote.good / totalFeedback) * 100);
 
   return (
     <>
@@ -44,7 +43,11 @@ function App() {
         resetFeedback={resetFeedback}
       />
       {totalFeedback > 0 ? (
-        <Feedback countVote={countVote} totalFeedback={totalFeedback} />
+        <Feedback
+          countVote={countVote}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
       ) : (
         <Notification />
       )}
